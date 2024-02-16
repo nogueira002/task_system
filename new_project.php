@@ -94,25 +94,44 @@
 	</div>
 </div>
 <script>
-	$('#manage-project').submit(function(e){
-		e.preventDefault()
-		start_load()
-		$.ajax({
-			url:'ajax.php?action=save_project',
-			data: new FormData($(this)[0]),
-		    cache: false,
-		    contentType: false,
-		    processData: false,
-		    method: 'POST',
-		    type: 'POST',
-			success:function(resp){
-				if(resp == 1){
-					alert_toast('Data successfully saved',"success");
-					setTimeout(function(){
-						location.href = 'index.php?page=project_list'
-					},2000)
-				}
-			}
-		})
-	})
+    $('#manage-project').submit(function(e) {
+        e.preventDefault();
+
+        // Verifica se todos os campos obrigatórios estão preenchidos
+        var isValid = true;
+        $(this).find('input, select, textarea').each(function() {
+            // Verifica se o campo está vazio
+            if (!$(this).val().trim()) {
+                isValid = false;
+                $(this).addClass('is-invalid'); // Adiciona classe 'is-invalid' para destacar o campo obrigatório não preenchido
+            } else {
+                $(this).removeClass('is-invalid'); // Remove classe 'is-invalid' se o campo for preenchido
+            }
+        });
+
+        if (!isValid) {
+            alert('Por favor, preencha todos os campos obrigatórios.');
+            return false; // Impede o envio do formulário se algum campo obrigatório não estiver preenchido
+        }
+
+        start_load();
+        $.ajax({
+            url: 'ajax.php?action=save_project',
+            data: new FormData($(this)[0]),
+            cache: false,
+            contentType: false,
+            processData: false,
+            method: 'POST',
+            type: 'POST',
+            success: function(resp) {
+                if (resp == 1) {
+                    alert_toast('Data successfully saved', "success");
+                    setTimeout(function() {
+                        location.href = 'index.php?page=project_list'
+                    }, 2000);
+                }
+            }
+        });
+    });
 </script>
+
