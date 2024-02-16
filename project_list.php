@@ -116,35 +116,34 @@
 	}
 </style>
 <script>
-	$(document).ready(function()
-	{
-		$('#list').dataTable()
-	
-		$('.delete_project').click(function()
-		{
-			_conf("Deseja Eleminiar o projeto","delete_projec",[$(this).attr('data-id')])
-		})
-		fetchDataForCharts();
-	})
+	$(document).ready(function() {
+    $('#list').dataTable();
 
-	//apagar projeto
-	function delete_project($id){
-		start_load()
-		$.ajax({
-			url:'ajax.php?action=delete_project',
-			method:'POST',
-			data:{id:$id},
-			success:function(resp){
-				if(resp==1){
-					alert_toast("Apagado com sucesso",'success')
-					setTimeout(function(){
-						location.reload()
-					},1500)
+    $('.delete_project').click(function() {
+        var projectId = $(this).data('id'); // Captura o ID do projeto a partir do atributo 'data-id'
+        _conf("Deseja Eleminiar o projeto", "delete_project", [projectId]); // Chama a função _conf passando o ID do projeto
+    });
 
-				}
-			}
-		})
-	}
+    fetchDataForCharts();
+});
+
+// Função para chamar a exclusão do projeto via AJAX
+function delete_project(projectId) {
+    start_load();
+    $.ajax({
+        url: 'ajax.php?action=delete_project',
+        method: 'POST',
+        data: { id: projectId }, // Passa o ID do projeto para o PHP
+        success: function(resp) {
+            if (resp == 1) {
+                alert_toast("Apagado com sucesso", 'success');
+                setTimeout(function() {
+                    location.reload(); // Recarrega a página após a exclusão bem-sucedida
+                }, 1500);
+            }
+        }
+    });
+}
 
 	function fetchDataForCharts() {
         // Fazer uma solicitação AJAX para recuperar dados do PHP
