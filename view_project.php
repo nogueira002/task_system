@@ -209,7 +209,7 @@ if (!empty($task_documents['name'])) {
                             	<td class="text-center">
                                 	<?php if(!empty($row['employee_id'])): ?>
                                 	    <!-- Mostra apenas se o campo employee_id não estiver vazio -->
-                                	    Atribuída a: <?php echo $row['employee_id']; ?>
+                                	    <?php echo $row['employee_id']; ?>
                                 	<?php else: ?>
                                 	    <!-- Se o campo employee_id estiver vazio -->
                                 	    Empregado não atribuído

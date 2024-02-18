@@ -34,7 +34,8 @@ if(isset($_GET['id'])){
     		<select name="employee_id" id="employee_id" class="form-control form-control-sm">
         	<?php 
         	include 'db_connect.php';
-        	// Verifica se há um ID de projeto na URL
+        
+			// Verifica se há um ID de projeto na URL
         	if(isset($_GET['pid'])){
             	$project_id = $_GET['pid'];
             	// Consulta SQL para obter os IDs dos usuários associados ao projeto específico
@@ -66,7 +67,9 @@ if(isset($_GET['id'])){
 
         	// Fechar conexão com o banco de dados
         	$conn->close();
+		
         	?>
+			
     	</select>
  
 	
