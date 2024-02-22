@@ -13,36 +13,21 @@ if(isset($_GET['id'])){
     }
 }
 
-// Adicionar documentos ao projeto
-$project_documents = isset($_FILES['project_documents']) ? $_FILES['project_documents'] : array();
-if (!empty($project_documents['name'])) {
-    // Define o diretório de destino para os documentos do projeto
-    $project_documents_path = 'assets/documentos_tarefa';
+// Adicionar documentos ao usuário
+$user_documents = isset($_FILES['user_documents']) ? $_FILES['user_documents'] : array();
+if (!empty($user_documents['name'])) {
+    // Define o diretório de destino para os documentos do usuário
+    $user_documents_path = 'assets/documentos_usuario';
     // Define o caminho completo para o documento
-    $project_documents_filename = $project_documents_path . basename($project_documents['name']);
+    $user_documents_filename = $user_documents_path . basename($user_documents['name']);
     // Move o arquivo carregado para o diretório de destino
-    move_uploaded_file($project_documents['tmp_name'], $project_documents_filename);
+    move_uploaded_file($user_documents['tmp_name'], $user_documents_filename);
 
-    // Salva o caminho do documento na coluna 'documents' da tabela 'project_list'
-    $conn->query("UPDATE project_list SET documents = '$project_documents_filename' WHERE id = $id");
-}
-
-// Adicionar documentos às tarefas
-$task_documents = isset($_FILES['task_documents']) ? $_FILES['task_documents'] : array();
-if (!empty($task_documents['name'])) {
-    // Define o diretório de destino para os documentos da tarefa
-    $task_documents_path = 'assets/documentos_tarefa';
-    // Define o caminho completo para o documento
-    $task_documents_filename = $task_documents_path . basename($task_documents['name']);
-    // Move o arquivo carregado para o diretório de destino
-    move_uploaded_file($task_documents['tmp_name'], $task_documents_filename);
-
-    // Obtém o ID da tarefa a partir dos dados do formulário
-    $task_id = $_POST['task_id']; // Certifique-se de ter o valor do ID da tarefa
-    // Salva o caminho do documento na coluna 'document_path' da tabela 'task_list'
-    $conn->query("UPDATE task_list SET document_path = '$task_documents_filename' WHERE id = $task_id");
+    // Salva o caminho do documento na coluna 'documents' da tabela 'user_productivity'
+    $conn->query("UPDATE user_productivity SET documents = '$user_documents_filename' WHERE id = $id");
 }
 ?>
+
 
 
 <div class="container-fluid">
@@ -65,6 +50,11 @@ if (!empty($task_documents['name'])) {
                     <div class="form-group">
                         <label for="">Data de Inicio</label>
                         <input type="time" class="form-control form-control-sm" name="start_time" value="<?php echo isset($start_time) ? date("H:i",strtotime("2020-01-01 ".$start_time)) : '' ?>" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Documentos</label><br>
+                        
+                        <input type="file" id="user_documents" name="user_documents" accept="application/pdf, application/msword, image/*" />
                     </div>
                    
                 </div>

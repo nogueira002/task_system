@@ -10,7 +10,7 @@
 			<div class="col-md-6">
 				<div class="form-group">
 					<label for="" class="control-label">Nome</label>
-					<input type="text" class="form-control form-control-sm" name="name" value="<?php echo isset($name) ? $name : '' ?>">
+					<input type="text" class="form-control form-control-sm" name="name" required value="<?php echo isset($name) ? $name : '' ?>">
 				</div>
 			</div>
           	<div class="col-md-6">
@@ -28,13 +28,13 @@
 			<div class="col-md-6">
             <div class="form-group">
               <label for="" class="control-label">Data de Inicio</label>
-              <input type="date" class="form-control form-control-sm" autocomplete="off" name="start_date" value="<?php echo isset($start_date) ? date("Y-m-d",strtotime($start_date)) : '' ?>">
+              <input type="date" class="form-control form-control-sm" autocomplete="off" name="start_date" required value="<?php echo isset($start_date) ? date("Y-m-d",strtotime($start_date)) : '' ?>  ">
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
               <label for="" class="control-label">Data de Fim</label>
-              <input type="date" class="form-control form-control-sm" autocomplete="off" name="end_date" value="<?php echo isset($end_date) ? date("Y-m-d",strtotime($end_date)) : '' ?>">
+              <input type="date" class="form-control form-control-sm" autocomplete="off" name="end_date" required value="<?php echo isset($end_date) ? date("Y-m-d",strtotime($end_date)) : '' ?>">
             </div>
           </div>
 		</div>
@@ -97,22 +97,8 @@
     $('#manage-project').submit(function(e) {
     e.preventDefault();
 
-    var isValid = true;
-    $(this).find('input, select, textarea').each(function() {
-        if (!$(this).val().trim()) {
-            isValid = false;
-            $(this).addClass('is-invalid');
-        } else {
-            $(this).removeClass('is-invalid');
-        }
-    });
-
-    if (!isValid) {
-        alert('Por favor, preencha todos os campos obrigatórios.');
-        return false;
-    }
-
     start_load();
+
     $.ajax({
         url: 'ajax.php?action=save_project',
         data: new FormData($(this)[0]),
@@ -131,5 +117,4 @@
         }
     });
 });
-
 </script>

@@ -321,18 +321,36 @@ Class Action {
 		$dur = abs(strtotime("2020-01-01 ".$end_time)) - abs(strtotime("2020-01-01 ".$start_time));
 		$dur = $dur / (60 * 60);
 		$data .= ", time_rendered='$dur' ";
-		// echo "INSERT INTO user_productivity set $data"; exit;
+	
+		// Adicionar lógica para upload de documentos
+		if(isset($_FILES['user_documents']) && !empty($_FILES['user_documents']['name'])) {
+			// Diretório de destino para os documentos do usuário
+			$user_documents_path = 'doc/';
+			// Nome do arquivo do documento
+			$user_documents_filename = $user_documents_path . basename($_FILES['user_documents']['name']);
+			// Move o arquivo carregado para o diretório de destino
+			if(move_uploaded_file($_FILES['user_documents']['tmp_name'], $user_documents_filename)) {
+				// Adiciona o caminho do documento aos dados a serem inseridos/atualizados no banco de dados
+				$data .= ", documents='$user_documents_filename'";
+			} else {
+				// Se houver um erro no upload, você pode lidar com isso aqui
+				echo "Erro ao fazer o upload do documento.";
+				return; // Ou você pode optar por sair da função ou retornar um código de erro adequado
+			}
+		}
+	
 		if(empty($id)){
 			$data .= ", user_id={$_SESSION['login_id']} ";
 			
-			$save = $this->db->query("INSERT INTO user_productivity set $data");
+			$save = $this->db->query("INSERT INTO user_productivity SET $data");
 		}else{
-			$save = $this->db->query("UPDATE user_productivity set $data where id = $id");
+			$save = $this->db->query("UPDATE user_productivity SET $data WHERE id = $id");
 		}
 		if($save){
 			return 1;
 		}
 	}
+	
 	function delete_progress(){
 		extract($_POST);
 		$delete = $this->db->query("DELETE FROM user_productivity where id = $id");

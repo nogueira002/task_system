@@ -292,6 +292,13 @@ if (!empty($task_documents['name'])) {
 		                      <!-- /.user-block -->
 		                      <div>
 		                       <?php echo html_entity_decode($row['comment']) ?>
+							   
+							   <?php if (!empty($row['documents'])): ?><!-- !empty verifica se uma variável está vazia, ou seja serve para vereficar se o campo da base de dadso esta vazio -->
+    							<div class="text-right"> <!-- Adiciona classe para alinhar à direita -->
+        							<a href="<?php echo html_entity_decode($row['documents']) ?>" class="btn btn-secondary" target="_blank">Ver Documento</a>
+    							</div>
+								<?php endif; ?>
+
 		                      </div>
 
 		                      <p>

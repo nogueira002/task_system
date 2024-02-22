@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 12-Fev-2024 às 21:47
+-- Tempo de geração: 21-Fev-2024 às 23:29
 -- Versão do servidor: 8.0.31
 -- versão do PHP: 7.4.33
 
@@ -40,14 +40,15 @@ CREATE TABLE IF NOT EXISTS `project_list` (
   `date_created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `documents` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Extraindo dados da tabela `project_list`
 --
 
 INSERT INTO `project_list` (`id`, `name`, `description`, `status`, `start_date`, `end_date`, `manager_id`, `user_ids`, `date_created`, `documents`) VALUES
-(12, 'Plataforma de Troca de Tarefas Locais', '						&lt;font color=&quot;#000000&quot; face=&quot;S&ouml;hne, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, Helvetica Neue, Arial, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji&quot;&gt;&lt;span style=&quot;white-space-collapse: preserve;&quot;&gt;Criar uma plataforma online onde os membros da comunidade possam oferecer e solicitar servi&ccedil;os locais uns aos outros em troca de pontos. Os usu&aacute;rios podem listar tarefas que precisam ser feitas, como jardinagem, conserto de m&oacute;veis, aulas particulares, etc., e tamb&eacute;m oferecer suas pr&oacute;prias habilidades para ajudar os outros. Cada vez que um usu&aacute;rio completa uma tarefa para outra pessoa, ele recebe pontos que podem ser usados para solicitar ajuda de outras pessoas na plataforma.&lt;/span&gt;&lt;/font&gt;&lt;br&gt;					', 0, '2024-02-19', '2024-03-12', 5, '3,7,4,8', '2024-02-12 18:10:49', NULL);
+(12, 'Plataforma de Troca de Tarefas Locais', '												&lt;font color=&quot;#000000&quot; face=&quot;S&ouml;hne, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, Helvetica Neue, Arial, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji&quot;&gt;&lt;span style=&quot;white-space-collapse: preserve;&quot;&gt;Criar uma plataforma online onde os membros da comunidade possam oferecer e solicitar servi&ccedil;os locais uns aos outros em troca de pontos. Os usu&aacute;rios podem listar tarefas que precisam ser feitas, como jardinagem, conserto de m&oacute;veis, aulas particulares, etc., e tamb&eacute;m oferecer suas pr&oacute;prias habilidades para ajudar os outros. Cada vez que um usu&aacute;rio completa uma tarefa para outra pessoa, ele recebe pontos que podem ser usados para solicitar ajuda de outras pessoas na plataforma.&lt;/span&gt;&lt;/font&gt;&lt;br&gt;										', 0, '2024-02-19', '2024-03-12', 5, '3,7,4,2,8', '2024-02-12 18:10:49', NULL),
+(15, 'Site SCI', '', 0, '1212-12-12', '1213-12-12', 5, '7', '2024-02-16 15:17:16', NULL);
 
 -- --------------------------------------------------------
 
@@ -92,18 +93,21 @@ CREATE TABLE IF NOT EXISTS `task_list` (
   `document_path` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_user_id` (`employee_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Extraindo dados da tabela `task_list`
 --
 
 INSERT INTO `task_list` (`id`, `project_id`, `employee_id`, `task`, `description`, `status`, `date_created`, `completion_status`, `document_path`) VALUES
-(19, 12, 3, 'Desenvolvimento de Protótipos', '&lt;span style=&quot;font-family: S&ouml;hne, ui-sans-serif, system-ui, -apple-system, &amp;quot;Segoe UI&amp;quot;, Roboto, Ubuntu, Cantarell, &amp;quot;Noto Sans&amp;quot;, sans-serif, &amp;quot;Helvetica Neue&amp;quot;, Arial, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;; white-space-collapse: preserve;&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Crie prot&oacute;tipos de um produto ou servi&ccedil;o para testar sua viabilidade e funcionalidade.&lt;/font&gt;&lt;/span&gt;							', 1, '2024-02-12 18:11:48', 0, NULL),
-(20, 12, 4, 'Análise de Dados', '&lt;span style=&quot;font-family: S&ouml;hne, ui-sans-serif, system-ui, -apple-system, &amp;quot;Segoe UI&amp;quot;, Roboto, Ubuntu, Cantarell, &amp;quot;Noto Sans&amp;quot;, sans-serif, &amp;quot;Helvetica Neue&amp;quot;, Arial, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;; white-space-collapse: preserve;&quot;&gt;&lt;font color=&quot;#000000&quot; style=&quot;&quot;&gt;Colete e analise dados relevantes para extrair insights &uacute;teis e informar decis&otilde;es estrat&eacute;gicas.&lt;/font&gt;&lt;/span&gt;							', 1, '2024-02-12 18:14:40', 0, NULL),
-(21, 12, 8, 'Desenvolvimento de Software', '&lt;span style=&quot;font-family: S&ouml;hne, ui-sans-serif, system-ui, -apple-system, &amp;quot;Segoe UI&amp;quot;, Roboto, Ubuntu, Cantarell, &amp;quot;Noto Sans&amp;quot;, sans-serif, &amp;quot;Helvetica Neue&amp;quot;, Arial, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;; white-space-collapse: preserve;&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Projete e desenvolva aplicativos, programas ou sistemas de software para resolver problemas espec&iacute;ficos ou atender &agrave;s necessidades do seu p&uacute;blico-alvo.&lt;/font&gt;&lt;/span&gt;							', 1, '2024-02-12 18:15:09', 0, NULL),
-(22, 12, 7, 'Gestão de Finanças', '&lt;span style=&quot;font-family: S&ouml;hne, ui-sans-serif, system-ui, -apple-system, &amp;quot;Segoe UI&amp;quot;, Roboto, Ubuntu, Cantarell, &amp;quot;Noto Sans&amp;quot;, sans-serif, &amp;quot;Helvetica Neue&amp;quot;, Arial, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;; white-space-collapse: preserve;&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Monitore e gerencie as finan&ccedil;as do projeto, incluindo or&ccedil;amento, previs&atilde;o de receitas e despesas, e relat&oacute;rios financeiros.&lt;/font&gt;&lt;/span&gt;							', 1, '2024-02-12 18:16:10', 0, NULL),
-(23, 12, 3, 'Treinamento e Desenvolvimento', '&lt;span style=&quot;font-family: S&ouml;hne, ui-sans-serif, system-ui, -apple-system, &amp;quot;Segoe UI&amp;quot;, Roboto, Ubuntu, Cantarell, &amp;quot;Noto Sans&amp;quot;, sans-serif, &amp;quot;Helvetica Neue&amp;quot;, Arial, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;; white-space-collapse: preserve;&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Crie programas de treinamento para melhorar as habilidades e compet&ecirc;ncias dos funcion&aacute;rios ou membros da equipe.&lt;/font&gt;&lt;/span&gt;							', 1, '2024-02-12 18:16:42', 0, NULL);
+(19, 12, 3, 'Desenvolvimento de Protótipos', '								&lt;span style=&quot;font-family: S&ouml;hne, ui-sans-serif, system-ui, -apple-system, &amp;quot;Segoe UI&amp;quot;, Roboto, Ubuntu, Cantarell, &amp;quot;Noto Sans&amp;quot;, sans-serif, &amp;quot;Helvetica Neue&amp;quot;, Arial, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;; white-space-collapse: preserve;&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Crie prot&oacute;tipos de um produto ou servi&ccedil;o para testar sua viabilidade e funcionalidade.&lt;/font&gt;&lt;/span&gt;													', 3, '2024-02-12 18:11:48', 0, NULL),
+(20, 12, 4, 'Análise de Dados', '								&lt;span style=&quot;font-family: S&ouml;hne, ui-sans-serif, system-ui, -apple-system, &amp;quot;Segoe UI&amp;quot;, Roboto, Ubuntu, Cantarell, &amp;quot;Noto Sans&amp;quot;, sans-serif, &amp;quot;Helvetica Neue&amp;quot;, Arial, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;; white-space-collapse: preserve;&quot;&gt;&lt;font color=&quot;#000000&quot; style=&quot;&quot;&gt;Colete e analise dados relevantes para extrair insights &uacute;teis e informar decis&otilde;es estrat&eacute;gicas.&lt;/font&gt;&lt;/span&gt;													', 3, '2024-02-12 18:14:40', 0, NULL),
+(21, 12, 3, 'Desenvolvimento de Software', '				&lt;span style=&quot;font-family: S&ouml;hne, ui-sans-serif, system-ui, -apple-system, &amp;quot;Segoe UI&amp;quot;, Roboto, Ubuntu, Cantarell, &amp;quot;Noto Sans&amp;quot;, sans-serif, &amp;quot;Helvetica Neue&amp;quot;, Arial, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;; white-space-collapse: preserve;&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Projete e desenvolva aplicativos, programas ou sistemas de software para resolver problemas espec&iacute;ficos ou atender &agrave;s necessidades do seu p&uacute;blico-alvo.&lt;/font&gt;&lt;/span&gt;										', 3, '2024-02-12 18:15:09', 0, NULL),
+(22, 12, 3, 'Gestão de Finanças', '				&lt;span style=&quot;font-family: S&ouml;hne, ui-sans-serif, system-ui, -apple-system, &amp;quot;Segoe UI&amp;quot;, Roboto, Ubuntu, Cantarell, &amp;quot;Noto Sans&amp;quot;, sans-serif, &amp;quot;Helvetica Neue&amp;quot;, Arial, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;; white-space-collapse: preserve;&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Monitore e gerencie as finan&ccedil;as do projeto, incluindo or&ccedil;amento, previs&atilde;o de receitas e despesas, e relat&oacute;rios financeiros.cccc&lt;/font&gt;&lt;/span&gt;', 1, '2024-02-12 18:16:10', 0, NULL),
+(23, 12, 3, 'Treinamento e Desenvolvimento', '&lt;span style=&quot;font-family: S&ouml;hne, ui-sans-serif, system-ui, -apple-system, &amp;quot;Segoe UI&amp;quot;, Roboto, Ubuntu, Cantarell, &amp;quot;Noto Sans&amp;quot;, sans-serif, &amp;quot;Helvetica Neue&amp;quot;, Arial, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Symbol&amp;quot;, &amp;quot;Noto Color Emoji&amp;quot;; white-space-collapse: preserve;&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Crie programas de treinamento para melhorar as habilidades e compet&ecirc;ncias dos funcion&aacute;rios ou membros da equipe.&lt;/font&gt;&lt;/span&gt;							', 1, '2024-02-12 18:16:42', 0, NULL),
+(24, 15, 7, 'Criaçao do Logo', '														', 3, '2024-02-16 15:18:09', 0, NULL),
+(25, 12, 2, 'teste', 'ola teste email', 1, '2024-02-21 21:33:32', 0, NULL),
+(26, 12, 2, 'teste', 'ola teste email 2', 1, '2024-02-21 21:34:58', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -156,17 +160,21 @@ CREATE TABLE IF NOT EXISTS `user_productivity` (
   `user_id` int NOT NULL,
   `time_rendered` float NOT NULL,
   `date_created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `documents` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Extraindo dados da tabela `user_productivity`
 --
 
-INSERT INTO `user_productivity` (`id`, `project_id`, `comment`, `subject`, `date`, `start_time`, `end_time`, `user_id`, `time_rendered`, `date_created`) VALUES
-(17, 12, '&lt;p&gt;coisas&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;', 'Bug', '2024-02-12', '19:58:00', '00:00:00', 5, -19.9667, '2024-02-12 18:57:36'),
-(18, 12, 'vdrgdrgdr', 'Bug', '2024-02-12', '19:06:00', '00:00:00', 8, -19.1, '2024-02-12 19:06:39'),
-(19, 12, '                            &lt;p&gt;ola admin perciso de ajuda&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;                        ', 'Marketing Digital', '2024-02-12', '19:12:00', '00:00:00', 8, -19.2, '2024-02-12 19:12:13');
+INSERT INTO `user_productivity` (`id`, `project_id`, `comment`, `subject`, `date`, `start_time`, `end_time`, `user_id`, `time_rendered`, `date_created`, `documents`) VALUES
+(20, 15, 'ygtvytvy', '<fzsfzfzwfz', '2024-02-16', '15:19:00', '00:00:00', 5, -15.3167, '2024-02-16 15:19:59', NULL),
+(21, 12, '&lt;p&gt;kakakaka&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;', 'Marketing Digital', '2024-02-18', '01:02:00', '00:00:00', 1, -1.03333, '2024-02-18 01:01:08', NULL),
+(22, 12, 'adwdawdawdawdawdawd', 'Bug na basse de dados', '2024-02-18', '01:03:00', '00:00:00', 3, -1.05, '2024-02-18 01:03:19', NULL),
+(23, 12, 'awdawdawda', 'Bug', '2024-02-21', '23:41:00', '00:00:00', 5, -23.6833, '2024-02-21 22:39:37', NULL),
+(24, 12, '&lt;p&gt;teste&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;', 'Bug', '2024-02-21', '22:45:00', '00:00:00', 5, -22.75, '2024-02-21 22:45:41', NULL),
+(27, 12, 'awdawdawdawda', 'Bug', '2024-02-21', '23:07:00', '00:00:00', 5, -23.1167, '2024-02-21 23:07:39', 'doc/41pCKJ+g11L._AC_SX522_.jpg');
 
 --
 -- Restrições para despejos de tabelas
