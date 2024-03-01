@@ -19,16 +19,17 @@ header("location:index.php?page=home");
 
 ?>
 <?php include 'header.php' ?>
-<body class="hold-transition login-page bg-black">
+<body class="hold-transition login-page bg-gradient-dark text-white">
 <div class="login-box">
   <div class="login-logo">
-    <a href="#" class="text-white"><b><?php echo $_SESSION['system']['name'] ?> - Admin</b></a>
+    <a href="#" class="text-white" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"><b><?php echo $_SESSION['system']['name'] ?> </b></a>
   </div>
   <!-- /.login-logo -->
-  <div class="card">
-    <div class="card-body login-card-body">
+  <div class="card" style="border-radius: 10px;">
+    <div class="card-body login-card-body" style="border-radius: 10px; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
       <form action="" id="login-form">
         <div class="input-group mb-3">
+          
           <input type="email" class="form-control" name="email" required placeholder="Email">
           <div class="input-group-append">
             <div class="input-group-text">
@@ -61,6 +62,7 @@ header("location:index.php?page=home");
     </div>
     <!-- /.login-card-body -->
   </div>
+
 </div>
 <!-- /.login-box -->
 <script>

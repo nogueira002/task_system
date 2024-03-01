@@ -260,7 +260,7 @@ Class Action {
 		   return 0; // Falha na exclusão
 		}
 	 }
-	 function save_task(){
+	function save_task(){
 		// Verifica se os dados foram recebidos do formulário
 		if(isset($_POST['task'], $_POST['description'], $_POST['status'], $_POST['project_id'], $_POST['employee_id'])){
 			// Extrai as variáveis do formulário
@@ -295,13 +295,9 @@ Class Action {
 	
 	function delete_task(){
 		extract($_POST);
-		$delete = $this->db->prepare("DELETE FROM task_list WHERE id = $id");
-		$delete->bind_param("i", $id);
-		
-		if ($delete->execute()) {
-		   return 1; // Exclusão bem-sucedida
-		} else {
-		   return 0; // Falha na exclusão
+		$delete = $this->db->query("DELETE FROM task_list where id = $id");
+		if($delete){
+			return 1;
 		}
 	}
 	function save_progress(){
@@ -349,6 +345,7 @@ Class Action {
 		if($save){
 			return 1;
 		}
+		
 	}
 	
 	function delete_progress(){

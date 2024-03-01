@@ -157,8 +157,8 @@
 							</div>
 						</div>
 						<div class="col-xl-8 col-md-7 content-item">
-							<form action="#!" method="post" class="form-submission contact-form contact-form-padding" novalidate>
-								<input type="hidden" name="Subject" value="Contact form">
+							<form action="https://api.staticforms.xyz/submit" method="post">
+								
 								<div class="row gutters-default">
 									<div class="col-12">
 										<h3>Formulario</h3>
@@ -166,19 +166,19 @@
 									<div class="col-xl-4 col-sm-6 col-12">
 										<div class="form-field">
 											<label for="contact-name" class="form-field-label">Nome</label>
-											<input type="text" class="form-field-input" name="Name" value="" autocomplete="off" id="contact-name" required data-pristine-required-message="This field is required.">
+											<input type="text" class="form-field-input" name="Name" value="" autocomplete="off"  required  >
 										</div>
 									</div>
 									<div class="col-xl-4 col-sm-6 col-12">
 										<div class="form-field">
 											<label for="contact-phone" class="form-field-label">Telefone</label>
-											<input type="tel" class="form-field-input mask-phone" name="Phone" value="" autocomplete="off" id="contact-phone" required data-pristine-required-message="This field is required.">
+											<input type="tel" class="form-field-input mask-phone" name="Phone" value="" autocomplete="off"  required  >
 										</div>
 									</div>
 									<div class="col-xl-4 col-12">
 										<div class="form-field">
 											<label for="contact-email" class="form-field-label">Email</label>
-											<input type="email" class="form-field-input" name="Email" value="" autocomplete="off" id="contact-email" required data-pristine-required-message="This field is required." data-pristine-email-message="Please enter a valid email address.">
+											<input type="email" class="form-field-input" name="Email" value="" autocomplete="off" required  >
 										</div>
 									</div>
 									<div class="col-12">
@@ -188,9 +188,12 @@
 										</div>
 										<div class="form-btn">
 											<button type="submit" class="btn btn-w240 ripple"><span>Enviar</span></button>
+											
 										</div>
 									</div>
 								</div>
+								<input type="hidden" name="accessKey" value="333848a6-45db-4b1d-918f-44a812ee9268">
+											<input type="hidden" name="redirectTo" value="http://localhost/task_system/unisync/contacts.html">
 							</form>
 						</div>
 					</div>

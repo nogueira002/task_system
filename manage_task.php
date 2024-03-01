@@ -6,6 +6,7 @@ if(isset($_GET['id'])){
 		$$k = $v;
 	}
 }
+session_start()
 ?>
 <div class="container-fluid">
 	<form action="" id="manage-task">
@@ -30,7 +31,12 @@ if(isset($_GET['id'])){
 			</select>
 		</div>
 		<div class="form-group">
-    	<label for="employee_id">Empregado</label>
+    	<label for="employee_id">Empregado :</label>
+		<?php if($_SESSION['login_type'] == 3): ?> <!--aqui caso o login seja igual diferente de 3 aparece ....-->
+			<span>Seleciona o teu nome</span>
+        <?php endif; ?>
+		
+		
     		<select name="employee_id" id="employee_id" class="form-control form-control-sm">
         	<?php 
         	include 'db_connect.php';

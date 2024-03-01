@@ -334,6 +334,9 @@ if (!empty($task_documents['name'])) {
 	$('.edit_task').click(function(){
 		uni_modal("Editar Tarefa: "+$(this).attr('data-task'),"manage_task.php?pid=<?php echo $id ?>&id="+$(this).attr('data-id'),"mid-large")
 	})
+	$('.delete_task').click(function(){
+		_conf("Tem certeza de que deseja excluir esta tarefa?","delete_task",[$(this).attr('data-id')])
+	})
 	$('.view_task').click(function(){
 		uni_modal("Detalhes da Tarefa","view_task.php?id="+$(this).attr('data-id'),"mid-large")
 	})
@@ -354,7 +357,24 @@ if (!empty($task_documents['name'])) {
 			data:{id:$id},
 			success:function(resp){
 				if(resp==1){
-					alert_toast("Dados excluídos com ",'sucesso')
+					alert_toast("Dados excluídos com sucesso ",'sucesso')
+					setTimeout(function(){
+						location.reload()
+					},1500)
+
+				}
+			}
+		})
+	}
+	function delete_task($id){
+		start_load()
+		$.ajax({
+			url:'ajax.php?action=delete_task',
+			method:'POST',
+			data:{id:$id},
+			success:function(resp){
+				if(resp==1){
+					alert_toast("Tarefa apagada com sucesso ",'sucesso')
 					setTimeout(function(){
 						location.reload()
 					},1500)
