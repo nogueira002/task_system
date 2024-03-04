@@ -23,9 +23,9 @@
 						<th class="text-center">#</th>
 						<th>Projeto</th>
 						<th>Data de Inicio</th>
-						<th>Data de Termino</th>
-						<th>Estado</th>
-						<th>Ação</th>
+						<th>Data Prevista de Termino</th>
+						<th  class="text-center">Estado</th>
+						<th  class="text-center">Ação</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -63,7 +63,13 @@
 						<th class="text-center"><?php echo $i++ ?></th>
 						<td>
 							<p><b><?php echo ucwords($row['name']) ?></b></p>
-							<p class="truncate"><?php echo strip_tags($desc) ?></p>
+							<div class="progress progress-sm">
+                              <div class="progress-bar bg-green" role="progressbar" aria-valuenow="57" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $prog ?>%">
+                              </div>
+                          	</div>
+                          	<small>
+                              <?php echo $prog ?>% Completo
+                          	</small>
 						</td>
 						<td><b><?php echo date("M d, Y",strtotime($row['start_date'])) ?></b></td>
 						<td><b><?php echo date("M d, Y",strtotime($row['end_date'])) ?></b></td>

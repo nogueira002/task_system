@@ -260,27 +260,29 @@ Class Action {
 		   return 0; // Falha na exclusão
 		}
 	 }
-	function save_task(){
+	 function save_task(){
 		// Verifica se os dados foram recebidos do formulário
-		if(isset($_POST['task'], $_POST['description'], $_POST['status'], $_POST['project_id'], $_POST['employee_id'])){
+		if(isset($_POST['task'], $_POST['description'], $_POST['status'], $_POST['project_id'], $_POST['employee_id'], $_POST['deadline'])){
 			// Extrai as variáveis do formulário
 			$task = $_POST['task'];
 			$description = htmlentities($_POST['description']);
 			$status = $_POST['status'];
 			$project_id = $_POST['project_id'];
 			$employee_id = $_POST['employee_id'];
-	
+			$deadline = $_POST['deadline']; // Extrai a data de término do formulário
+			
 			// Sanitiza os dados para prevenir injeção de SQL
 			$task = mysqli_real_escape_string($this->db, $task);
 			$description = mysqli_real_escape_string($this->db, $description);
 			$status = intval($status); // Converte para inteiro para garantir que seja um valor numérico
-	
+			$deadline = date('Y-m-d', strtotime($deadline)); // Formata a data para o formato YYYY-MM-DD
+			
 			// Executa a consulta SQL
 			if(empty($_POST['id'])){
-				$sql = "INSERT INTO task_list (task, description, status, project_id, employee_id) VALUES ('$task', '$description', $status, $project_id, $employee_id)";
+				$sql = "INSERT INTO task_list (task, description, status, project_id, employee_id, deadline) VALUES ('$task', '$description', $status, $project_id, $employee_id, '$deadline')";
 			}else{
 				$id = $_POST['id'];
-				$sql = "UPDATE task_list SET task='$task', description='$description', status=$status, project_id=$project_id, employee_id=$employee_id WHERE id = $id";
+				$sql = "UPDATE task_list SET task='$task', description='$description', status=$status, project_id=$project_id, employee_id=$employee_id, deadline='$deadline' WHERE id = $id";
 			}
 	
 			if($this->db->query($sql)){
@@ -292,6 +294,7 @@ Class Action {
 			return 0; // Retorna 0 se os dados do formulário não estiverem completos
 		}
 	}
+	
 	
 	function delete_task(){
 		extract($_POST);

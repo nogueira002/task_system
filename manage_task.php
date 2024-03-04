@@ -23,6 +23,10 @@ session_start()
 			</textarea>
 		</div>
 		<div class="form-group">
+    		<label for="">Data de Término</label>
+    		<input type="date" class="form-control" name="deadline" value="<?php echo isset($deadline) ? $deadline : '' ?>">
+		</div>
+		<div class="form-group">
 			<label for="">Status</label>
 			<select name="status" id="status" class="custom-select custom-select-sm">
 				<option value="1" <?php echo isset($status) && $status == 1 ? 'selected' : '' ?>>Pendente</option>
