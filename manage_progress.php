@@ -106,7 +106,7 @@ if (!empty($user_documents['name'])) {
             type: 'POST',
             success:function(resp){
                 if(resp == 1){
-                    alert_toast('Data successfully saved',"success");
+                    alert_toast('Atividade Adicionada Com Sucesso',"success");
                     setTimeout(function(){
                         location.reload()
                     },1000)

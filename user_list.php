@@ -67,7 +67,7 @@
 			data:{id:$id},
 			success:function(resp){
 				if(resp==1){
-					alert_toast("Data successfully deleted",'success')
+					alert_toast("Utilizador Apagado Com Sucesso",'success')
 					setTimeout(function(){
 						location.reload()
 					},1500)

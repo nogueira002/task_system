@@ -119,7 +119,7 @@ session_start()
 		    type: 'POST',
 			success:function(resp){
 				if(resp == 1){
-					alert_toast('Data successfully saved',"success");
+					alert_toast('Tarefa Adiciona Com Sucesso',"success");
 					setTimeout(function(){
 						location.reload()
 					},1500)

@@ -55,14 +55,16 @@ if (!empty($task_documents['name'])) {
 	<div class="row">
 		<div class="col-md-12">
 			<div class="callout ">
+
 				<div class="col-md-12">
 					<div class="row">
 						<div class="col-sm-6">
 							<dl>
 								<dt><b class="border-bottom border-primary">Nome Projeto</b></dt>
 								<dd><?php echo ucwords($name) ?></dd>
-								<dt><b class="border-bottom border-primary">Descrição</b></dt>
+								<dt><b class="border-bottom border-primary"></b></dt>
 								<dd><?php echo html_entity_decode($description) ?></dd>
+								
 							</dl>
 						</div>
 						<div class="col-md-6">
@@ -95,7 +97,6 @@ if (!empty($task_documents['name'])) {
 								</dd>
 							</dl>
 							<dl>
-								<dt><b class="border-bottom border-primary">Gestor do projeto</b></dt>
 								<dd>
 									<?php if(isset($manager['id'])) : ?>
 									<div class="d-flex align-items-center mt-1">
@@ -106,6 +107,7 @@ if (!empty($task_documents['name'])) {
 										<small><i>Gerente excluído do banco de dados</i></small>
 									<?php endif; ?>
 								</dd>
+
 							</dl>
 						</div>
 					</div>
@@ -248,7 +250,7 @@ if (!empty($task_documents['name'])) {
 		<div class="col-md-12">
 			<div class="card">
 				<div class="card-header">
-					<b>Relatorio/Atividade</b>
+					<b>Atividade</b>
 					<div class="card-tools">
 						<button class="btn btn-primary  btn-sm" type="button" id="new_productivity"><i class="fa fa-plus"></i> Progresso</button>
 					</div>

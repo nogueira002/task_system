@@ -227,8 +227,9 @@ Class Action {
 		$data = "";
 		foreach($_POST as $k => $v){
 			if(!in_array($k, array('id','user_ids')) && !is_numeric($k)){
-				if($k == 'description')
+				if($k == 'description' || $k == 'subject' || $k == 'stakeholders' || $k == 'risks'){
 					$v = htmlentities(str_replace("'","&#x2019;",$v));
+				}
 				if(empty($data)){
 					$data .= " $k='$v' ";
 				}else{
@@ -249,6 +250,7 @@ Class Action {
 			return 1;
 		}
 	}
+	
 	function delete_project() {
 		extract($_POST);
 		$stmt = $this->db->prepare("DELETE FROM project_list WHERE id = ?");

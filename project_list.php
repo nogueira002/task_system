@@ -142,7 +142,7 @@ function delete_project(projectId) {
         data: { id: projectId }, // Passa o ID do projeto para o PHP
         success: function(resp) {
             if (resp == 1) {
-                alert_toast("Apagado com sucesso", 'success');
+                alert_toast("Projeto Apagado com sucesso", 'success');
                 setTimeout(function() {
                     location.reload(); // Recarrega a página após a exclusão bem-sucedida
                 }, 1500);

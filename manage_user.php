@@ -76,7 +76,7 @@ foreach($user->fetch_array() as $k =>$v){
 		    type: 'POST',
 			success:function(resp){
 				if(resp ==1){
-					alert_toast("Data successfully saved",'success')
+					alert_toast("Utilizador Atualizado",'success')
 					setTimeout(function(){
 						location.reload()
 					},1500)
