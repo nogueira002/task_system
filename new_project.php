@@ -17,7 +17,7 @@
             <div class="col-md-6">
 				<div class="form-group">
 					<label for="" class="control-label">Descrição</label>
-                    <input type="text" class="form-control form-control-sm" name="description" required value="<?php echo isset($subject) ? $subject : '' ?>">
+                    <input type="text" class="form-control form-control-sm" name="description" required value="<?php echo isset($description	) ? $description: '' ?>">
 				</div>
 			</div>
           	
@@ -73,8 +73,9 @@
         </div>
         <div class="col-md-6">
                 <div class="form-group">
-                    <label for="" class="control-label">Data de Pervista de término</label>
-                    <input type="date" class="form-control form-control-sm" autocomplete="off" name="end_date" required value="<?php echo isset($end_date) ? date("Y-m-d",strtotime($end_date)) : '' ?>">
+                    <label for="" class="control-label">Data de Inicio</label>
+                    <input type="date" class="form-control form-control-sm" autocomplete="off" name="end_date" required value="<?php echo isset($start_date) ? date("Y-m-d",strtotime($start_date)) : '' ?>">
+
                 </div>
             </div>
         <div class="col-md-6">
@@ -88,8 +89,8 @@
     <div class="row">
     	<div class="col-md-6">
             <div class="form-group">
-                <label for="" class="control-label">Data de Inicio</label>
-                <input type="date" class="form-control form-control-sm" autocomplete="off" name="start_date" required value="<?php echo isset($start_date) ? date("Y-m-d",strtotime($start_date)) : '' ?>  ">
+                <label for="" class="control-label">Data de Pervista de término</label>
+                <input type="date" class="form-control form-control-sm" autocomplete="off" name="end_date" required value="<?php echo isset($end_date) ? date("Y-m-d",strtotime($end_date)) : '' ?>">
             </div>
         </div>
 	</div>

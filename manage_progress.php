@@ -61,7 +61,8 @@ if (!empty($user_documents['name'])) {
                 <div class="col-md-7">
                     <div class="form-group">
                         <label for="">Comentarios/descrição do Progresso</label>
-                        <textarea name="comment" id="" cols="30" rows="10" class="summernote form-control" required="">
+
+                        <textarea name="comment" id="" cols="30" rows="10" class="form-control" required>
                             <?php echo isset($comment) ? $comment : '' ?>
                         </textarea>
                     </div>

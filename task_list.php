@@ -16,7 +16,7 @@
             <th>Projeto</th>
             <th>Nome-Tarefa</th>
             <th>Início do Projeto</th>
-            <th>Data Pervista de Término</th>
+            <th>Data Prevista de Término</th>
             <th>Estado das Tarefas</th>
             <th></th>
         </tr>

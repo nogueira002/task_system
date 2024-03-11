@@ -4,8 +4,9 @@
 		<div class="card-header">
             <?php if($_SESSION['login_type'] != 3): ?>
 			<div class="card-tools">
-				<a class="btn btn-block btn-sm btn-default btn-flat border-primary" href="./index.php?page=new_project"><i class="fa fa-plus"></i> Adicionar Novo Projeto</a>
+				<a class="btn btn-primary  btn-sm" href="./index.php?page=new_project"><i class="fa fa-plus"></i> Adicionar Novo Projeto</a>
 			</div>
+			
             <?php endif; ?>
 		</div>
 		<div class="card-body">

@@ -13,12 +13,15 @@
     </ul>
 
     <ul class="navbar-nav ml-auto">
-    
-     <li class="nav-item dropdown">
+    <li class="nav-item dropdown">
             <a class="nav-link"  data-toggle="dropdown" aria-expanded="true" href="javascript:void(0)">
               <span>
                 <div class="d-felx badge-pill">
-                  <span class="fa fa-user mr-2"></span>
+                <?php if(isset($_SESSION['login_avatar'])): ?>
+                     <img src="<?php echo 'assets/uploads/'.$_SESSION['login_avatar']; ?>" alt="Avatar" class="avatar mr-2" style="width: 32px; height: 32px; border-radius: 10px; pading-right:30px ">
+                  <?php else: ?>
+                      <span class="fa fa-user mr-2"></span>
+                  <?php endif; ?>
                   <span><b><?php echo ucwords($_SESSION['login_firstname']) ?></b></span>
                   <span class="fa fa-angle-down ml-2"></span>
                 </div>

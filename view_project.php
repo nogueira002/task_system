@@ -173,6 +173,7 @@ if (!empty($task_documents['name'])) {
                         		<th>Atribuída a</th>
                         	<?php endif; ?>
                         	<th>Ação</th>
+					
                     	</thead>
                     	<tbody>
                         	<?php 
@@ -235,7 +236,16 @@ if (!empty($task_documents['name'])) {
                                     
                                 	</div>
                             	</td>
+								
+								
+
+								
+
+
                         	</tr>
+							
+								
+						
                         	<?php endwhile; ?>
                     	</tbody>
                 	</table>
@@ -385,4 +395,10 @@ if (!empty($task_documents['name'])) {
 			}
 		})
 	}
+	
+
+	
+
+
+
 </script>
