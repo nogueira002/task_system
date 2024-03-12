@@ -35,9 +35,15 @@ session_start()
 			</select>
 		</div>
 		<div class="form-group">
-    	<label for="employee_id">Empregado :</label>
+    	<label for="employee_id">Assessor :</label>
 		<?php if($_SESSION['login_type'] == 3): ?> <!--aqui caso o login seja igual diferente de 3 aparece ....-->
 			<span>Seleciona o teu nome</span>
+        <?php endif; ?>
+		<?php if($_SESSION['login_type'] == 2 ): ?> <!--aqui caso o login seja igual diferente de 3 aparece ....-->
+			<span>Seleciona o Nome Do Assessor</span>
+        <?php endif; ?>
+		<?php if($_SESSION['login_type'] == 1): ?> <!--aqui caso o login seja igual diferente de 3 aparece ....-->
+			<span>Seleciona o Nome Do Assessor</span>
         <?php endif; ?>
 		
 		
