@@ -28,7 +28,7 @@
 							<input type="hidden" name="type" value="3">
 						<?php endif; ?>
 						<div class="form-group">
-							<label for="" class="control-label">Avatar</label>
+							<label for="" class="control-label">Foto De Perfil</label>
 							<div class="custom-file">
 		                      <input type="file" class="custom-file-input" id="customFile" name="img" onchange="displayImg(this,$(this))">
 		                      <label class="custom-file-label" for="customFile">Foto</label>

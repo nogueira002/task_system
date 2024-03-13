@@ -51,7 +51,7 @@
 						$prog = $tprog > 0 ? ($cprog/$tprog) * 100 : 0;
 		                $prog = $prog > 0 ?  number_format($prog,2) : $prog;
 		                $prod = $conn->query("SELECT * FROM user_productivity where project_id = {$row['id']}")->num_rows;
-						if($row['status'] == 0 && strtotime(date('Y-m-d')) >= strtotime($row['start_date'])):
+						if($row['status'] == 0 && strtotime(date('Y-m-d')) >= strtotime($row['date_created'])):
 						if($prod  > 0  || $cprog > 0)
 		                  $row['status'] = 2;
 		                else
@@ -72,7 +72,7 @@
                               <?php echo $prog ?>% Completo
                           	</small>
 						</td>
-						<td><b><?php echo date("M d, Y",strtotime($row['start_date'])) ?></b></td>
+						<td><b><?php echo date("M d, Y",strtotime($row['date_created'])) ?></b></td>
 						<td><b><?php echo date("M d, Y",strtotime($row['end_date'])) ?></b></td>
 						<td class="text-center">
 							<?php

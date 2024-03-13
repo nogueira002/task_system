@@ -48,7 +48,7 @@ if (!empty($user_documents['name'])) {
                         <input type="date" class="form-control form-control-sm" name="date" value="<?php echo isset($date) ? date("Y-m-d",strtotime($date)) : '' ?>" required>
                     </div>
                     <div class="form-group">
-                        <label for="">Data de Inicio</label>
+                        <label for="">Hora</label>
                         <input type="time" class="form-control form-control-sm" name="start_time" value="<?php echo isset($start_time) ? date("H:i",strtotime("2020-01-01 ".$start_time)) : '' ?>" required>
                     </div>
                     <div class="form-group">
@@ -60,7 +60,7 @@ if (!empty($user_documents['name'])) {
                 </div>
                 <div class="col-md-7">
                     <div class="form-group">
-                        <label for="">Comentarios/descrição do Progresso</label>
+                        <label for="">Descrição do Progresso</label>
 
                         <textarea name="comment" id="" cols="30" rows="10" class="form-control" required>
                             <?php echo isset($comment) ? $comment : '' ?>
